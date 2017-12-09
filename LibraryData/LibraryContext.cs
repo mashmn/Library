@@ -12,7 +12,7 @@ namespace LibraryData
         public DbSet<Checkout> Checkout { get; set; }
         public DbSet<CheckoutHistory> CheckoutHistory { get; set; }
         public DbSet<LibraryBranch> LibraryBranch { get; set; }
-        public DbSet<LibraryAsset> LibraryAsset { get; set; }
+        public DbSet<LibraryAsset> LibraryAssets { get; set; }
         public DbSet<LibraryCard> LibraryCard { get; set; }
         public DbSet<Patron> Patrons { get; set; }
         public DbSet<Status> Statuses { get; set; }
