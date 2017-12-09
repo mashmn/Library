@@ -16,4 +16,3 @@ namespace LibraryData.Models
         //public virtual LibraryCard LibraryCard { get; set; }
     }
 }
-}
