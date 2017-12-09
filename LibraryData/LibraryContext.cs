@@ -7,7 +7,7 @@ namespace LibraryData
     {
         public LibraryContext(DbContextOptions options) : base (options) { }
 
-        public DbSet<Book> Book { get; set; }
+        public DbSet<Book> Books { get; set; }
         public DbSet<Video> Video { get; set; }
         public DbSet<Checkout> Checkout { get; set; }
         public DbSet<CheckoutHistory> CheckoutHistory { get; set; }

@@ -22,14 +22,6 @@ namespace LibraryServices
             _context.SaveChanges();
         }
 
-        public LibraryAsset Get(int id)
-        {
-            return _context.LibraryAssets
-                .Include(a => a.Status)
-                .Include(a => a.Location)
-                .FirstOrDefault(a => a.Id == id);
-        }
-
         public IEnumerable<LibraryAsset> GetAll()
         {
             return _context.LibraryAssets
@@ -42,19 +34,24 @@ namespace LibraryServices
             throw new NotImplementedException();
         }
 
-        public LibraryAsset GetById(int Id)
+        public LibraryAsset GetById(int id)
         {
-            throw new NotImplementedException();
+            return GetAll() // refactoring code by reusing
+                .FirstOrDefault(a => a.Id == id);
         }
 
         public LibraryBranch GetCurrentLocation(int id)
         {
-            throw new NotImplementedException();
+            return GetById(id).Location;
         }
 
         public string GetDeweyIndex(int id)
         {
-            throw new NotImplementedException();
+            if (_context.Books.Any(book => book.Id == id))
+            {
+                return _context.Books.FirstOrDefault(book => book.Id == id).DeweyIndex;
+            }
+            else return "";
         }
 
         public string GetIsbn(int id)
@@ -73,6 +70,11 @@ namespace LibraryServices
         }
 
         public string GetType(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<ILibraryAsset> ILibraryAsset.GetAll()
         {
             throw new NotImplementedException();
         }
